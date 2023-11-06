@@ -1,0 +1,20 @@
+Variables : 
+************************
+a variable is a user-defined or a user-readable custom name 
+assigned to a memory location. Variables hold a value that 
+can be modified and reused many times during the program 
+execution.
+
+Variable naming rules : 
+**************************
+
+A variable name can consist of Capital letters A-Z, lowercase letters a-z digits 0-9, and two special characters such as _ underscore and $ dollar sign.
+The first character must not be a digit.
+Blank spaces cannot be used in variable names.
+Java keywords cannot be used as variable names.
+Variable names are case-sensitive.
+There is no limit on the length of a variable name but by convention, it should be between 4 to 15 chars.
+Variable names always should exist on the left-hand side of assignment operators.
+
+Variable naming convention
+****************************
