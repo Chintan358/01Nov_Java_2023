@@ -1,0 +1,15 @@
+package oprators;
+
+public class O005_shorHand {
+	public static void main(String[] args) {
+		
+		
+		int a = 10;
+		a = a+50;
+		
+		
+		System.out.println(a);
+		
+		
+	}
+}
