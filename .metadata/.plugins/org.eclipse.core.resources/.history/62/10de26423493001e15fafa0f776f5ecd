@@ -1,0 +1,22 @@
+package oops;
+
+class Pen
+{
+	//data member
+	int price;
+	String color;
+	String company;
+	
+	public void toWrite()
+	{
+		System.out.println(price+" "+color+" "+company);
+	}
+	
+}
+
+public class O001_FirsatDemo {
+	public static void main(String[] args) {
+		
+		
+	}
+}

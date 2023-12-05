@@ -78,5 +78,40 @@ Oprators :
 4 : Logical
 && , ||
 
+OOPS : 
+
+class
+object
+inheritance
+polymorphism
+abstraction
+encaptulation
+
+Object : Realtime entity
+
+state   / variables /data memeber
+behaviour / methods / function member
+
+class : logical entity
+-collection of data member and function member
+
+method : 
+accesModifier returnType* methodName*(args)
+{
+	//body
+}
+
+class Pen
+{
+	int price;
+	String color;
+	String company;
+
+	public void toWrite()
+	{
+		//body
+	}
+}
+
 
 
