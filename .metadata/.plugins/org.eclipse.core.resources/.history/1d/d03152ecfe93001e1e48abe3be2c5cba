@@ -1,0 +1,31 @@
+package oops;
+
+class Calc
+{
+	public void print()
+	{
+		System.out.println("Running print method...");
+	}
+	
+	public void printName(String name)
+	{
+		System.out.println("Name is : "+name);
+	}
+	
+	public void add(int a, int b)
+	{
+		System.out.println(a+b);
+	}
+	
+}
+
+public class O003_MethodManipulation {
+	public static void main(String[] args) {
+		
+		
+		Calc c = new Calc();
+		c.print();
+		c.printName("hello");
+		c.add(10, 20);
+	}
+}

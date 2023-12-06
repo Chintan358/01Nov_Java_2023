@@ -10,6 +10,7 @@ class Pen
 	//function member
 	public void toWrite()
 	{
+		
 		System.out.println(price+" "+color+" "+company);
 	}
 	
