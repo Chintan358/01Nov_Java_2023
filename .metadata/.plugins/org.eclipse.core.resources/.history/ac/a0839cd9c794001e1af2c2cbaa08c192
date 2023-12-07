@@ -1,0 +1,21 @@
+package oops;
+
+class Run
+{
+	static int count = 0;
+	Run()
+	{
+		count++;
+		System.out.println(count);
+	}
+}
+
+public class O005_ObjectCount {
+	public static void main(String[] args) {
+		
+		Run r1 = new Run();
+		Run r2 = new Run();
+		Run r3 = new Run();
+		
+	}
+}

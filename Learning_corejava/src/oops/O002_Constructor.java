@@ -47,5 +47,7 @@ public class O002_Constructor {
 		Student st1 = new Student(20,"Tops");
 		st1.display();
 		
+//		Access a = new Access();
+//		a.print();
 	}
 }

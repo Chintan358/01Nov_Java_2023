@@ -1,0 +1,12 @@
+package oops;
+
+public class O006_Encaptulation {
+	public static void main(String[] args) {
+		
+		
+		Employee emp = new Employee();
+		
+		emp.display();
+		
+	}
+}

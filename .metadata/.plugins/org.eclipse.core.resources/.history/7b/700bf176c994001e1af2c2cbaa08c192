@@ -1,0 +1,22 @@
+package oops;
+
+class Access
+{
+	int a = 10;
+	String b = "abc";
+	
+	void print()
+	{
+		System.out.println(a+" "+b);
+	}
+}
+
+public class O006_AccessModifier {
+	
+	public static void main(String[] args) {
+		
+		Access a = new Access();
+		a.print();
+	}
+	
+}

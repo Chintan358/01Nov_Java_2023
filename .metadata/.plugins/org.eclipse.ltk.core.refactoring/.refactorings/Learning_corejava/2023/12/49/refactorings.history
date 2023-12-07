@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;oops.O006_AccessModifier.java&apos; to &apos;Access.java&apos;&#x0D;&#x0A;- Original project: &apos;Learning_corejava&apos;&#x0D;&#x0A;- Original element: &apos;oops.O006_AccessModifier.java&apos;&#x0D;&#x0A;- Renamed element: &apos;oops.Access.java&apos;" description="Rename compilation unit &apos;O006_AccessModifier.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;oops{O006_AccessModifier.java" name="Access.java" references="false" stamp="1701930350727" version="1.0"/>
+</session>
