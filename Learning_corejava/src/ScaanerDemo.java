@@ -17,7 +17,7 @@ public class ScaanerDemo {
 		
 		System.out.println(a+" "+b+" ");
 		
-		
+		sc.close();
 		
 	}
 }

@@ -15,4 +15,13 @@
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="oops.A"/>
     <fullyQualifiedTypeName name="oops.R"/>
+    <fullyQualifiedTypeName name="oops.Calc1"/>
+    <fullyQualifiedTypeName name="java.lang.Package"/>
+    <fullyQualifiedTypeName name="oops.Child"/>
+    <fullyQualifiedTypeName name="oops.FinalDemo"/>
+    <fullyQualifiedTypeName name="oops.Parent"/>
+    <fullyQualifiedTypeName name="oops.Shape"/>
+    <fullyQualifiedTypeName name="oops.Circle"/>
+    <fullyQualifiedTypeName name="oops.Square"/>
+    <fullyQualifiedTypeName name="oops.Triangle"/>
 </qualifiedTypeNameHistroy>
