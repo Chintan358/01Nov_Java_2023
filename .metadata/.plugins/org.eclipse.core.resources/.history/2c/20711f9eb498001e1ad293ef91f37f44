@@ -113,33 +113,5 @@ class Pen
 	}
 }
 
-**************************
-Abstraction : 
-
-Hiding implimantation and showing functionality
-
-there are 2 ways to achieve abstration in java
-1 : Abstract class : partial : containd both instanc eand abstract method
-2 : interface : 100% : contains only abstract mthod
-
-*****************************
-Abstract method : method without body
-
-ex : public void display();
-
-Instance method : method with body
-ex : public void display()
-	{
-	}
-
-
-
-
-
-
-
-
-
-
 
 
