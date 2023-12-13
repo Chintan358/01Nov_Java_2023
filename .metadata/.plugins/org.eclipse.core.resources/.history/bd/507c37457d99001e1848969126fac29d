@@ -1,0 +1,18 @@
+package impclasses;
+
+public class I001_StringDemo {
+	public static void main(String[] args) {
+		
+		
+		String s = "Welcome1";
+		String s1 =  s.concat("Home");
+		//String s1 = new String("Welcome");
+		
+		System.out.println(s);
+		System.out.println(s1);
+		
+		
+		
+		
+	}
+}

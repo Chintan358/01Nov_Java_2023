@@ -24,4 +24,6 @@
     <fullyQualifiedTypeName name="oops.Circle"/>
     <fullyQualifiedTypeName name="oops.Square"/>
     <fullyQualifiedTypeName name="oops.Triangle"/>
+    <fullyQualifiedTypeName name="oops.AbsImpl"/>
+    <fullyQualifiedTypeName name="oops.Itr1"/>
 </qualifiedTypeNameHistroy>

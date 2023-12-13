@@ -3,6 +3,11 @@ package oops;
 abstract class Abs
 {
 	public abstract void display();
+	
+	public void print()
+	{
+		System.out.println("runinng print");
+	}
 }
 
 class AbsImpl extends Abs

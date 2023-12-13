@@ -119,7 +119,8 @@ Abstraction :
 Hiding implimantation and showing functionality
 
 there are 2 ways to achieve abstration in java
-1 : Abstract class : partial : containd both instanc eand abstract method
+1 : Abstract class : partial : containd both instance and 
+abstract method
 2 : interface : 100% : contains only abstract mthod
 
 *****************************
@@ -131,6 +132,17 @@ Instance method : method with body
 ex : public void display()
 	{
 	}
+	
+*******************************************************
+Important Classes
+*******************
+String
+String buffer
+String builder
+Object
+Wrapper
+
+
 
 
 
