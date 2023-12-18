@@ -1,0 +1,23 @@
+package exeption;
+
+
+class Bank
+{
+	double balance;
+	
+	public void getBalance()
+	{
+		System.out.println("current balance is : "+balance);
+	}
+	
+}
+
+public class E003_CustomeException {
+	public static void main(String[] args) {
+		
+		Bank b = new Bank();
+		b.getBalance();
+		
+		
+	}
+}
