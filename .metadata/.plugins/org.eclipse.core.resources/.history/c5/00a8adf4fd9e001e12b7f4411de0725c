@@ -1,0 +1,40 @@
+package exeption;
+
+class AgeInvalidException extends Exception
+{
+	int need;
+	public void getMesaage()
+	{
+		System.out.println("need  : "+need);
+	}
+}
+
+class AgeChecker
+{
+	public void age(int age) throws AgeInvalidException
+	{
+		if(age<18)
+		{
+			throw new AgeInvalidException();
+		}
+		else
+		{
+			System.out.println("Valid");
+		}
+	}
+}
+
+public class E004_CustomeException {
+	public static void main(String[] args) {
+		
+		AgeChecker age = new AgeChecker();
+		try {
+			age.age(1);
+		} catch (AgeInvalidException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			e.getMesaage();
+		}
+		
+	}
+}

@@ -1,0 +1,18 @@
+package exeption;
+
+class Sample
+{
+	public void run() throws ArithmeticException
+	{
+		
+	}
+}
+
+public class E005_MethodOverriding  extends Sample{
+
+	@Override
+	public void run() throws RuntimeException
+	{
+		
+	}
+}

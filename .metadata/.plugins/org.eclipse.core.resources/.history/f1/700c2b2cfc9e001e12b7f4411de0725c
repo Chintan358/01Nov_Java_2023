@@ -1,0 +1,16 @@
+package oops;
+
+class St
+{
+	public void display()
+	{
+		System.out.println("runing display");
+	}
+}
+public class StaticBlock {
+	public static void main(String[] args) {
+		
+		St s = new St();
+		s.display();
+	}
+}
