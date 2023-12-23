@@ -16,7 +16,7 @@ public class F002_fileInputStream {
 			{
 				char ch = (char) i;
 				System.out.print(ch);
-				i = fis.read();
+				i= fis.read();
 			}
 			
 			

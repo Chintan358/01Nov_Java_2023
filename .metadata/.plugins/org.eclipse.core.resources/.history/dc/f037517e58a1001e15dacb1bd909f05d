@@ -1,0 +1,16 @@
+package fileio;
+
+import java.io.File;
+
+public class F004_file {
+	public static void main(String[] args) {
+		
+		
+		File file = new File("C:\\Chintan_work\\Files\\home.txt");
+		
+		
+		System.out.println(file.exists());
+		
+		
+	}
+}
