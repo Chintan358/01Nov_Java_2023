@@ -5,7 +5,8 @@ import java.util.HashSet;
 public class C003_HashSetDemo {
 	public static void main(String[] args) {
 		
-		
+		//initial size : 16
+		//load factor : .75
 		HashSet<String> set = new HashSet<String>();
 		set.add("Java");
 		set.add("Php");

@@ -1,8 +1,0 @@
-package exeption;
-
-public class InSufficientBalanceException extends Exception
-{
-	public InSufficientBalanceException(double need) {
-		// TODO Auto-generated constructor stub
-	}
-}

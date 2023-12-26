@@ -1,0 +1,29 @@
+package collection;
+
+public class Employee {
+	
+	int id;
+	String name;
+	String email;
+	double sal;
+	
+	public Employee(int id, String name, String email, double sal) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.sal = sal;
+	}
+	
+	public void display()
+	{
+		System.out.println(id+" "+name+" "+email+" "+sal);
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "hello";
+	}
+	
+}

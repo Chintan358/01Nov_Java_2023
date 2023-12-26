@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="oops.Pen"/>
-    <fullyQualifiedTypeName name="oops.O002_Constructor"/>
-    <fullyQualifiedTypeName name="oops.Student"/>
-    <fullyQualifiedTypeName name="oops.Calc"/>
-    <fullyQualifiedTypeName name="oops.Demo"/>
-    <fullyQualifiedTypeName name="oops.Sample"/>
-    <fullyQualifiedTypeName name="oops.Run"/>
-    <fullyQualifiedTypeName name="oops.Access"/>
     <fullyQualifiedTypeName name="oops.Employee"/>
     <fullyQualifiedTypeName name="oops.B"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
@@ -33,8 +25,6 @@
     <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="exeption.Run"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="java.lang.Character"/>
     <fullyQualifiedTypeName name="exeption.Bank"/>
     <fullyQualifiedTypeName name="java.lang.Runtime"/>
     <fullyQualifiedTypeName name="exeption.InSufficientBalanceException"/>
@@ -50,4 +40,24 @@
     <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
     <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="Pen"/>
+    <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
+    <fullyQualifiedTypeName name="java.util.TreeSet"/>
+    <fullyQualifiedTypeName name="java.util.Vector"/>
+    <fullyQualifiedTypeName name="java.util.Enumeration"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="java.lang.Comparable"/>
+    <fullyQualifiedTypeName name="collection.Employee"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="collection.Student"/>
+    <fullyQualifiedTypeName name="collection.SortById"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="collection.sortByName"/>
+    <fullyQualifiedTypeName name="assignment.Demo"/>
+    <fullyQualifiedTypeName name="java.lang.Character"/>
 </qualifiedTypeNameHistroy>

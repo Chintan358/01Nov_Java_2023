@@ -1,0 +1,46 @@
+
+class Pen
+{
+	//state, variables, fields, data memeber
+	 int price;
+	String color;
+	String company;
+	
+	//behaviour, metho, function member
+	public void toWrite()
+	{
+		System.out.println(price+" "+color+" "+company);
+	}
+	
+	public void add(int a, int b)
+	{
+		System.out.println(a+b);
+	}
+	
+	public void add(int a, int b,int c)
+	{
+		System.out.println(a+b+c);
+	}
+}
+
+
+public class Abc {
+	public static void main(String[] args) {
+		
+		System.out.println("Hello java");
+		
+		Pen p = new Pen();
+		p.price=10;
+		p.color="green";
+		p.company="cello";
+		p.toWrite();
+		
+		Pen p1 = new Pen();
+		p1.price=20;
+		p1.color="red";
+		p1.company="ss";
+		p1.toWrite();
+		p1.add(10, 20);
+		p1.add(10, 20,50);
+	}
+}
