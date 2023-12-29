@@ -8,8 +8,8 @@ public class SortById implements Comparator<Student> {
 	public int compare(Student o1, Student o2) {
 		
 		
-		int a = o2.id;
-		int b = o1.id;
+		int a = o2.id; //10 
+		int b = o1.id; //11
 		
 		int i=0;
 		if(b>a)
