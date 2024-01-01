@@ -1,0 +1,17 @@
+package impclasses;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class I007_Regex {
+	public static void main(String[] args) {
+		
+		
+		Pattern petter = Pattern.compile("^[a-z]$");
+		
+		Matcher match = petter.matcher("abcd@123");
+		
+		boolean b =  match.matches();
+		System.out.println(b);
+	}
+}

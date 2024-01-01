@@ -1,0 +1,11 @@
+package impclasses;
+
+public class I008_Math {
+	public static void main(String[] args) {
+		
+		
+		System.out.println(Math.max(10, 20));
+		
+		
+	}
+}
