@@ -1,0 +1,73 @@
+Database : MYSQL
+
+SQL : structure query language.
+***********************************
+C - create
+R - read
+U - update
+D - delete
+**********************************
+SQL commands
+************
+DDL : data defination lang.
+create : it creates databse or table
+alter : to make changes in table after creation
+drop : to remove database or table
+truncate : to remove all data from table, table strucure remain as it is.
+
+Database : 
+CREATE DATABASE 01nov;
+USE 01nov;
+DROP DATABASE 01nov;
+
+Table : 
+there are two types of constrains
+1 : datatype
+int
+varchar
+double
+Date
+blob
+clob
+
+2 : key
+uniqe key : duplication not allowed
+notnull key : null value not allowed
+primary key : unique + notnull
+foreign key : realtionship between tables
+
+CREATE TABLE student(id INT PRIMARY KEY, NAME VARCHAR(20), email VARCHAR(50));
+CREATE TABLE student(id INT PRIMARY KEY, NAME VARCHAR(20), email VARCHAR(50));
+
+ALTER TABLE student ADD COLUMN phno INT;
+ALTER TABLE student MODIFY COLUMN phno VARCHAR(10);
+ALTER TABLE student DROP COLUMN phno
+ALTER TABLE student RENAME TO STD;
+ALTER TABLE student CHANGE COLUMN uname email VARCHAR(50); 
+
+TRUNCATE STD;
+
+DROP TABLE STD;
+
+*************************************************************************************************
+DML : data manipulation lang.
+********************************
+Insert
+Update
+Delete
+
+INSERT INTO student VALUES(2,"abc","abc@gmail.com");
+INSERT INTO student(NAME) VALUES("Test");
+UPDATE student SET email="test@gmial.com",id=5 WHERE NAME="test";
+DELETE FROM student WHERE id=1;
+
+
+DQL : data query lang. 
+DCL : data control lang.
+
+
+
+
+
+
+
