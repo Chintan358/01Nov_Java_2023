@@ -63,6 +63,20 @@ DELETE FROM student WHERE id=1;
 
 
 DQL : data query lang. 
+***********************************************
+select
+
+SELECT * FROM emp;
+SELECT NAME,dept FROM emp;
+SELECT DISTINCT dept FROM emp;
+SELECT * FROM emp WHERE dept = 'java'
+SELECT * FROM emp WHERE dept = 'java' OR dept='SQL'
+SELECT * FROM emp WHERE dept='java' AND sal>5000
+SELECT * FROM emp WHERE dept IN('java','sql','ios');
+SELECT * FROM emp WHERE dept NOT IN('ios');
+
+
+
 DCL : data control lang.
 
 

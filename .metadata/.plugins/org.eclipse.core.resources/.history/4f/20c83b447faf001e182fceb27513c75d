@@ -1,0 +1,37 @@
+package assignment;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Random;
+
+public class A50 {
+	public static void main(String[] args) {
+		
+		
+		ArrayList<Integer> al = new ArrayList<Integer>();
+		al.add(10);
+		al.add(30);
+		al.add(25);
+		al.add(15);
+		
+		//Collections.sort(al);
+		//Collections.shuffle(al);
+		
+		
+		//Collections.swap(al, 0, 3);
+		
+		Random r = new Random();
+		for(int i=al.size()-1;i>=0;i--)
+		{
+			System.out.println(r.nextInt(i+1));
+		}
+		
+//		Iterator<Integer> itr = al.iterator();
+//		while(itr.hasNext())
+//		{
+//			System.out.println(itr.next());
+//		}
+		
+	}
+}
