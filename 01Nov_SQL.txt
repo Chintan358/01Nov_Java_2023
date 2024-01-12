@@ -67,15 +67,58 @@ DQL : data query lang.
 select
 
 SELECT * FROM emp;
+
 SELECT NAME,dept FROM emp;
+
 SELECT DISTINCT dept FROM emp;
+
 SELECT * FROM emp WHERE dept = 'java'
+
 SELECT * FROM emp WHERE dept = 'java' OR dept='SQL'
 SELECT * FROM emp WHERE dept='java' AND sal>5000
+
 SELECT * FROM emp WHERE dept IN('java','sql','ios');
 SELECT * FROM emp WHERE dept NOT IN('ios');
 
+SELECT * FROM emp WHERE sal BETWEEN 5000 AND 7000;
+SELECT * FROM emp WHERE sal>=2000 AND sal<=5000
 
+SELECT * FROM emp WHERE NAME LIKE 'Man%';
+SELECT *FROM emp WHERE NAME LIKE '%k';
+SELECT * FROM emp WHERE NAME LIKE '_a%';
+SELECT * FROM emp WHERE NAME LIKE '%i%';
+
+SELECT * FROM emp ORDER BY NAME;
+SELECT * FROM emp ORDER BY NAME DESC;
+
+SELECT MAX(sal) FROM emp;
+SELECT MIN(sal) FROM emp;
+SELECT SUM(sal) FROM emp;
+SELECT AVG(sal) FROM emp;
+SELECT COUNT(email) FROM emp;
+
+SELECT COUNT(DISTINCT dept) AS totaldept FROM emp;
+
+
+
+MAX
+SELECT * FROM emp WHERE sal= (SELECT MAX(sal) FROM emp)
+
+secondmax
+
+SELECT * FROM emp WHERE sal = (
+SELECT MAX(sal) FROM emp WHERE sal< (SELECT MAX(sal) FROM emp));
+
+
+SELECT * FROM emp LIMIT 2,4;
+
+SELECT * FROM emp ORDER BY sal DESC LIMIT 0,1
+SELECT * FROM emp ORDER BY sal DESC LIMIT 1,1
+SELECT * FROM emp ORDER BY sal  LIMIT 0,1
+
+SELECT * FROM emp WHERE sal IN(
+SELECT MAX(sal) FROM emp GROUP BY dept);
+*******************************************************************************
 
 DCL : data control lang.
 
