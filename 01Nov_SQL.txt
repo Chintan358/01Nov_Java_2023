@@ -121,6 +121,48 @@ SELECT MAX(sal) FROM emp GROUP BY dept);
 *******************************************************************************
 
 DCL : data control lang.
+commit
+rollback
+
+START TRANSACTION;
+
+
+DELETE FROM emp WHERE id=2;
+SAVEPOINT a;
+UPDATE emp SET dept='php'WHERE id=4;
+SAVEPOINT b;
+DELETE FROM emp WHERE id=6;
+
+
+COMMIT;
+
+ROLLBACK TO b;
+
+**************************************************************************
+**************************************************************************
+Normalisation
+**************
+CREATE TABLE author(aid INT PRIMARY KEY AUTO_INCREMENT, aname VARCHAR(20));
+
+CREATE TABLE book(bid INT PRIMARY KEY AUTO_INCREMENT, bname VARCHAR(20), price DOUBLE, aid INT, FOREIGN KEY(aid) REFERENCES author(aid));
+
+joins : 
+inner join
+ex : 
+SELECT book.bname,author.aname FROM book JOIN author ON book.aid=author.aid
+SELECT b.bname,a.aname FROM book b JOIN author a ON b.aid=a.aid
+
+outer join
+-left
+SELECT b.bname,a.aname FROM book b LEFT JOIN author a ON b.aid=a.aid
+-right
+
+SELECT b.bname,a.aname FROM book b RIGHT JOIN author a ON b.aid=a.aid
+-full
+SELECT b.bname,a.aname FROM book b LEFT JOIN author a ON b.aid=a.aid UNION
+SELECT b.bname,a.aname FROM book b RIGHT JOIN author a ON b.aid=a.aid
+
+
 
 
 
