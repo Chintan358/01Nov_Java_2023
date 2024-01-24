@@ -158,9 +158,112 @@ SELECT b.bname,a.aname FROM book b LEFT JOIN author a ON b.aid=a.aid
 -right
 
 SELECT b.bname,a.aname FROM book b RIGHT JOIN author a ON b.aid=a.aid
+
 -full
 SELECT b.bname,a.aname FROM book b LEFT JOIN author a ON b.aid=a.aid UNION
 SELECT b.bname,a.aname FROM book b RIGHT JOIN author a ON b.aid=a.aid
+
+
+****************************************************************************
+View : 
+
+CREATE
+  
+    VIEW `01nov`.`empview` 
+    AS
+(SELECT NAME,dept FROM emp);
+
+*****************************
+Stored Proceduger : 
+
+1 : simple
+DELIMITER $$
+
+CREATE
+   
+    PROCEDURE `01nov`.`empdata`()
+   
+	BEGIN
+	SELECT * FROM emp;
+	END$$
+
+DELIMITER ;
+
+call empdata()
+**************************************
+2 : In
+
+DELIMITER $$
+
+CREATE
+  
+    PROCEDURE `01nov`.`empbyid`(IN uid INT)
+   
+	BEGIN
+		SELECT * FROM emp WHERE id=uid;
+	END$$
+
+DELIMITER ;
+
+call empbyid(5)
+********************************************
+3 : out
+
+DELIMITER $$
+
+CREATE
+ 
+    PROCEDURE `01nov`.`deptcount`(OUT deptcount INT)
+    
+	BEGIN
+		SELECT COUNT(DISTINCT dept) INTO deptcount FROM emp;
+	END$$
+
+DELIMITER ;
+
+
+CALL deptcount(@dept);
+SELECT @dept
+
+***************************************
+4 InOUT
+
+DELIMITER $$
+
+CREATE
+  
+    PROCEDURE `01nov`.`salbyid`(INOUT number INT)
+  
+	BEGIN
+	SELECT sal INTO number FROM emp WHERE id=number;
+	END$$
+
+DELIMITER ;
+
+
+SET @num=3;
+CALL salbyid(@num);
+SELECT @num
+
+*****************************************
+trigger
+
+DELIMITER $$
+
+CREATE
+    /*[DEFINER = { user | CURRENT_USER }]*/
+    TRIGGER `01nov`.`oldsal` BEFORE UPDATE
+    ON `01nov`.`emp`
+    FOR EACH ROW BEGIN
+	INSERT INTO oldsal(NAME,sal) VALUE(old.name,old.sal);
+    END$$
+
+DELIMITER ;
+
+
+
+
+
 
 
 
