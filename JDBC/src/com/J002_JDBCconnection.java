@@ -25,6 +25,7 @@ public class J002_JDBCconnection {
 			//dql : select
 			ResultSet rs =  st.executeQuery("select * from emp");
 			
+			int index = 1;
 			while(rs.next())
 			{
 				int id = rs.getInt(1);
@@ -33,7 +34,8 @@ public class J002_JDBCconnection {
 				String dept = rs.getString(4);
 				double sal = rs.getDouble(5);
 				
-				System.out.println(id+" "+name+" "+email+" "+dept+" "+sal);
+				System.out.println(index+" "+id+" "+name+" "+email+" "+dept+" "+sal);
+				index++;
 			}
 			
 			
