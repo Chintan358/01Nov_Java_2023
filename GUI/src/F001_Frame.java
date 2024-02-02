@@ -8,6 +8,9 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
@@ -83,6 +86,28 @@ public class F001_Frame {
 		JButton submit = new JButton("Submit");
 		submit.setBounds(100, 450, 300, 20);
 		
+		
+		JMenuBar menubar = new JMenuBar();
+		menubar.setBounds(0, 0, 500, 20);
+		
+		JMenu file = new JMenu("File");
+		JMenu edit = new JMenu("Edit");
+		JMenu help = new JMenu("Help");
+		JMenu run = new JMenu("Run");
+		
+		menubar.add(file);
+		menubar.add(edit);
+		menubar.add(help);
+		menubar.add(run);
+		
+		JMenuItem open = new JMenuItem("Open");
+		JMenuItem save = new JMenuItem("Save");
+		JMenuItem refresh = new JMenuItem("Refresh");
+		
+		file.add(open);
+		file.add(save);
+		file.add(refresh);
+		
 		frame.add(l1);
 		frame.add(l2);
 		frame.add(l3);
@@ -105,5 +130,6 @@ public class F001_Frame {
 		frame.add(l9);
 		frame.add(area);
 		frame.add(submit);
+		frame.add(menubar);
 	}
 }
