@@ -260,6 +260,24 @@ CREATE
 
 DELIMITER ;
 
+**********
+function
+
+DELIMITER $$
+
+CREATE
+    
+    FUNCTION `01nov`.`test`()
+    RETURNS INT
+
+    BEGIN
+        DECLARE data1 INT;
+	SELECT COUNT(*) INTO data1 FROM crud;
+	RETURN data1;
+    END$$
+
+DELIMITER ;
+
 
 
 
