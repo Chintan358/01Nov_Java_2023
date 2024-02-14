@@ -1,0 +1,46 @@
+@charset "ISO-8859-1";
+
+*{
+	
+}
+
+.main{
+	width: 100%;
+	height: 100vh;
+}
+
+.header{
+	height: 20%;
+	width: 100%;
+	background-color: aqua;
+}
+
+.body{
+	height: 60%;
+	width: 100%;
+}
+
+.footer{
+	height: 20%;
+	width: 100%;
+	background-color: aqua;
+}
+
+form{
+	width: 30%;
+	margin: auto;
+}
+
+.logo {
+	width: 30%;
+	height: 100%;
+	background-color: bisque;
+	float: left;
+}
+
+.title {
+	width: 70%;
+	height: 100%;
+	background-color:blue;
+	float: right;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	
+	
+	
+	function n1()
+	{
+		
+		var n1 = document.getElementById("n1")
+		n1.style.backgroundColor="black";
+		n1.style.color="white"
+		n1.style.height="20px"
+	}
+	
+	
+	function n2()
+	{
+		
+		var n2 = document.getElementById("n2")
+		n2.style.backgroundColor="black";
+		n2.style.color="white"
+		n2.style.height="20px"
+	}
+		
+	function add()
+	{
+		var n1 = document.getElementById("n1").value
+		var n2 = document.getElementById("n2").value
+		var c = Number(n1)+Number(n2)	
+		document.getElementById("result").innerHTML=c
+	}
+	
+	function sub()
+	{
+		var n1 = document.getElementById("n1").value
+		var n2 = document.getElementById("n2").value
+		var c = Number(n1)-Number(n2)	
+		document.getElementById("result").innerHTML=c
+	}
+	
+	function mul()
+	{
+		var n1 = document.getElementById("n1").value
+		var n2 = document.getElementById("n2").value
+		var c = Number(n1)*Number(n2)	
+		document.getElementById("result").innerHTML=c
+	}
+	
+	function div()
+	{
+		var n1 = document.getElementById("n1").value
+		var n2 = document.getElementById("n2").value
+		var c = Number(n1)/Number(n2)	
+		document.getElementById("result").innerHTML=c
+	}
+	
+	
+</script>
+</head>
+<body>
+	
+		<h1 onmouseover="test()" onmouseout="test1()">Hello java</h1>
+		<label>First Value : </label>
+		<input type="number" id="n1" onclick="n1()">
+		<label>Second Value : </label>
+		<input type="number" id="n2" onclick="n2()">
+		<span id="result"></span>
+		<br>
+		<button onmouseover="add()">Addition</button><br>
+		<button onmouseover="sub()">Substraction</button><br>
+		<button onmouseover="div()">Division</button><br>
+		<button onmouseover="mul()">Multiplication</button><br>
+</body>
+</html>
