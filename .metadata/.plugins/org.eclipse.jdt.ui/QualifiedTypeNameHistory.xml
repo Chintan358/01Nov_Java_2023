@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="thread.T1"/>
     <fullyQualifiedTypeName name="thread.Sample"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="assement.Book"/>
     <fullyQualifiedTypeName name="assement.User"/>
+    <fullyQualifiedTypeName name="Calc"/>
 </qualifiedTypeNameHistroy>
