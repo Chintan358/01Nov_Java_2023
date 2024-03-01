@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%-- <%
+<%-- 	<%
 		String msg = (String)request.getAttribute("msg");
 		if(msg != null)	
-		{ %>	
-				<span><%=msg%></span>		
+		{ %>
+			<span><%=msg%></span>
 		<%}	
-	%> --%>
+	%>  --%>
 	
 	<span style="color: green;">${msg}</span>
 	<form action="reg" method="post">
