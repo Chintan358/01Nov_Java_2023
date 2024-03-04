@@ -15,37 +15,69 @@ public class REgistrationController  extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+	
+		String id = req.getParameter("id");
 		String uname = req.getParameter("uname");
 		String email = req.getParameter("email");
 		String pass = req.getParameter("pass");
 		String phone = req.getParameter("phone");
-		
 		
 		Employee e = new Employee();
 		e.setUname(uname);
 		e.setEmail(email);
 		e.setPass(pass);
 		e.setPhone(phone);
-		
 		EmployeeDao dao = new EmployeeDao();
-		
-		boolean b = dao.isEmailExist(e);
-		
-		if(b)
+		System.out.println("hello"+id);
+		if(id.equals(null) || id.equals(""))
 		{
-			req.setAttribute("err", "Email already exist !!");
-			req.getRequestDispatcher("reg.jsp").forward(req, resp);
+			boolean b = dao.isEmailExist(e);
+			
+			if(b)
+			{
+				req.setAttribute("err", "Email already exist !!");
+				req.getRequestDispatcher("reg.jsp").forward(req, resp);
+			}
+			else
+			{
+				int i = dao.registration(e);
+				if(i>0)
+				{
+					req.setAttribute("msg", "Registration success!!!");
+					req.getRequestDispatcher("reg.jsp").forward(req, resp);
+				}
+			}
+			
 		}
 		else
 		{
-			int i = dao.registration(e);
-			if(i>0)
+			int uid = Integer.parseInt(id);
+			e.setId(uid);
+			boolean b = dao.isEmailExist(e);
+			
+			if(b)
 			{
-				req.setAttribute("msg", "Registration success!!!");
+				req.setAttribute("err", "Email already exist !!");
 				req.getRequestDispatcher("reg.jsp").forward(req, resp);
 			}
+			else
+			{
+				int i = dao.updateEmp(e);
+				if(i>0)
+				{
+					req.setAttribute("msg", "Update success!!!");
+					req.getRequestDispatcher("reg.jsp").forward(req, resp);
+				}
+			}
+			
 		}
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

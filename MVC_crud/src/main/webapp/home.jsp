@@ -9,5 +9,6 @@
 <body>
 	<h1>Home</h1>
 	<h2>Welcome, ${uname}</h2>
+	<h3><a href="display">view all data</a></h3>
 </body>
 </html>

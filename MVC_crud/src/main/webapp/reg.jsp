@@ -22,23 +22,24 @@
 		<span class="text-success">${msg}</span>
 		<span class="text-danger">${err}</span>
 		<div class="from-group">
+		<input type="hidden" value="${edata.getId()}" name="id">
 		<label>Username</label>
-		<input type="text" name="uname" placeholder="enter username" class="form-control">
+		<input type="text" name="uname" placeholder="enter username" class="form-control" value="${edata.getUname()}">
 		</div>
 		
 		<div class="from-group">
 		<label>Email</label>
-		<input type="text" name="email" placeholder="enter Email"  class="form-control" >
+		<input type="text" name="email" placeholder="enter Email"  class="form-control" value="${edata.getEmail()}" >
 		</div>
 		
 		<div class="from-group">
 		<label>Password</label>
-		<input type="password" name="pass" placeholder="enter Password"  class="form-control">
+		<input type="password" name="pass" placeholder="enter Password"  class="form-control" value="${edata.getPass()}">
 		</div>
 		
 		<div class="from-group">
 		<label>Phone</label>
-		<input type="text" name="phone" placeholder="enter Phone"  class="form-control">
+		<input type="text" name="phone" placeholder="enter Phone"  class="form-control" value="${edata.getPhone()}">
 		</div>
 		
 		<div class="from-group">
