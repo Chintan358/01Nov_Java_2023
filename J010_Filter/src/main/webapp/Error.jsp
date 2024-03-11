@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-			<h1><a href="home">Home</a></h1>
-			<h1><a href="about">About</a></h1>
-			<h1><a href="reg.jsp">Registration</a></h1>
+       <h1>Page under construction</h1>
 </body>
 </html>
