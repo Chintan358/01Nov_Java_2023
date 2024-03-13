@@ -2,6 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,9 +38,8 @@
 			<th><a href="logout">Logout</a></th>
 			</tr>
 			
-		<%
+		<%-- <%
 			ArrayList<Employee> emp =(ArrayList<Employee>)request.getAttribute("data");
-		
 			for(Employee e :emp)
 			{ %>
 				<tr>
@@ -53,9 +53,19 @@
 			
 				</tr>
 			<% }
+		%> --%>
 		
-		%>
-		
+		<c:forEach var="e" items="${data}">
+		<tr>
+				<td>${e.getId()}</td>
+				<td>${e.getUname()}</td>
+				<td>${e.getEmail()}</td>
+				<td>${e.getPass()}</td>
+				<td>${e.getPhone()}</td>
+				<td><a href="update?action=edit&uid=${e.getId()}" class="btn btn-primary">Edit</a></td>
+				<td><a href="update?action=delete&uid=${e.getId()}" class="btn btn-danger">Delete</a></td>
+		</tr>	
+		</c:forEach>
 		</table>
 		</div>
 		</div>
