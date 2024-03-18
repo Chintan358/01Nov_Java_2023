@@ -18,6 +18,18 @@ public class Data extends HttpServlet {
 		
 		
 		PrintWriter pw = resp.getWriter();
-		pw.append("Hello..."+dt);
+		
+		if(dt.equals("electric"))
+		{
+			pw.append("<ul><li>Fan</li><li>TV</li><li>Phone</li></ul>");
+		}
+		else if(dt.equals("cloths"))
+		{
+			pw.append("<ul><li>Shirt</li><li>t-Shirt</li><li>Cap</li></ul>");
+		}
+		else if(dt.equals("sports"))
+		{
+			pw.append("<ul><li>Bat</li><li>Ball</li><li>Hockystick</li></ul>");
+		}
 	}
 }
