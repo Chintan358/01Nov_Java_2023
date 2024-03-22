@@ -167,6 +167,31 @@ public class EmployeeDao {
 		return i;
 	}
 
+	public ArrayList<Employee> searchEmp(String value) {
+		ArrayList<Employee> emp = new ArrayList<Employee>();
+		PreparedStatement ps;
+		try {
+			ps = cn.prepareStatement("select * from reg where uname like ?");
+			ps.setString(1, value+"%");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Employee e = new Employee();
+				e.setId(rs.getInt(1));
+				e.setUname(rs.getString(2));
+				e.setEmail(rs.getString(3));
+				e.setPass(rs.getString(4));
+				e.setPhone(rs.getString(5));
+
+				emp.add(e);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return emp;
+	}
+
 	
 
 }

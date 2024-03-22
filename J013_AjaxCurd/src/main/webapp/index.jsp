@@ -26,6 +26,8 @@
 	<script type="text/javascript">
 	
 		$(document).ready(function(){
+			
+				$('#upbtn').hide()
 			 showdata()
 		})
 		
@@ -38,7 +40,7 @@
 				var row = "";
 				for(var i=0;i<data.length;i++)
 				{
-					row = row+"<tr><td>"+data[i].id+"</td><td>"+data[i].uname+"</td><td>"+data[i].email+"</td><td>"+data[i].pass+"</td><td>"+data[i].phone+"</td></tr>"
+					row = row+"<tr><td>"+data[i].id+"</td><td>"+data[i].uname+"</td><td>"+data[i].email+"</td><td>"+data[i].pass+"</td><td>"+data[i].phone+"</td><td><button onclick='deletedata("+data[i].id+")' class='btn btn-danger'>Delete</button></td><td><button onclick='editdata("+data[i].id+")' class='btn btn-primary'>Edit</button></td></tr>"
 				}
 				
 				$('#tdata').html(row)
@@ -59,6 +61,78 @@
 			
 		}
 		
+		function deletedata(uid)
+		{
+			$.get('update',{uid,action:"delete"},function(rt){
+				alert(rt)
+				showdata()
+			})
+		}
+		
+		function editdata(uid)
+		{
+			$.get('update',{uid,action:"edit"},function(rt){
+				const data = JSON.parse(rt)
+				
+					$('#id').val(data.id)
+					$('#uname').val(data.uname)
+					$('#email').val(data.email)
+					$('#pass').val(data.pass)
+					$('#phone').val(data.phone)
+					
+					$('#smbtn').hide()
+					$('#upbtn').show()
+			})
+			
+			
+		}
+		
+		function updateData()
+		{
+			var id = $('#id').val()
+			var uname = $('#uname').val()
+			var email = $('#email').val()
+			var pass = $('#pass').val()
+			var phone = $('#phone').val()
+			
+			$.post('updatedata',{id,uname,email,pass,phone},function(rt){
+				alert(rt)
+				showdata()
+			})
+		}
+		
+		function searchdata(value)
+		{
+			$.get('search',{value},function(rt){
+				const data =  JSON.parse(rt)
+				var row = "";
+				for(var i=0;i<data.length;i++)
+				{
+					row = row+"<tr><td>"+data[i].id+"</td><td>"+data[i].uname+"</td><td>"+data[i].email+"</td><td>"+data[i].pass+"</td><td>"+data[i].phone+"</td><td><button onclick='deletedata("+data[i].id+")' class='btn btn-danger'>Delete</button></td><td><button onclick='editdata("+data[i].id+")' class='btn btn-primary'>Edit</button></td></tr>"
+				}
+				
+				$('#tdata').html(row)
+			})
+		}
+		
+		function emailCheck(value)
+		{
+			$.get('emailcheck',{value},function(rt){
+				if(rt=="true")
+				{
+					$('#emailErr').html("Email exist !!")
+					//document.getElementById('smbtn').disabled=true
+					$('#smbtn').attr('disabled',true)
+				}
+				else
+				{
+					$('#emailErr').html("")
+					$('#smbtn').attr('disabled',false)
+					
+				}
+			})
+		}
+		
 	</script>
 	
 	
@@ -71,16 +145,18 @@
 		<div class='row'>
 			<div class='col-md-4'>
 				<h2 align='center'>Registration Form</h2>
-
+		
 				<div class="from-group">
-					<input type="hidden"  name="id"> <label>Username</label>
+					<input type="hidden"  name="id" id="id"> 
+					<label>Username</label>
 					<input type="text" name="uname" placeholder="enter username"
 						class="form-control" id='uname'>
 				</div>
 
 				<div class="from-group">
 					<label>Email</label> <input type="text" name="email"
-						placeholder="enter Email" class="form-control" id='email'>
+						placeholder="enter Email" class="form-control" id='email' onkeyup="emailCheck(value)">
+					<span id="emailErr" class="text-danger"></span>
 				</div>
 
 				<div class="from-group">
@@ -94,12 +170,17 @@
 				</div>
 
 				<div class="from-group">
-					<br> <input type="submit" class="btn btn-success" onclick="insertData()">
+					<br> <input type="submit" id="smbtn" class="btn btn-success" value="Submit" onclick="insertData()">
+						<input type="submit" id="upbtn" class="btn btn-success" value="Update" onclick="updateData()">
+				
 				</div>
 			</div>
 			<div class='col-md-8'>
 				<h2 align='center'>Student Details</h2>
-
+					
+				
+				<input type="text" name="search" id="search" class="form-control" placeholder="Serach by username" onkeyup="searchdata(value)">
+				
 				<table class="table">
 				<tr>
 					<th>Id</th>
