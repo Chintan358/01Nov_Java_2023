@@ -21,6 +21,7 @@ public class AddUser {
 		
 		SessionFactory sf = cfg.buildSessionFactory();
 		
+		
 		Session s = sf.openSession();
 		
 		Transaction tx = null;
