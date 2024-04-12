@@ -29,12 +29,7 @@ public class AddProduct {
 		p1.setPname("Cap");
 		p1.setCategory(cat);
 		
-		
-		
-		
 		s.save(p1);
-		
-		
 		tx.commit();
 
 	}
