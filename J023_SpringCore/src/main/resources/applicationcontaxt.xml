@@ -10,7 +10,7 @@
   	<!-- autowire = "byName" -->
   	
   	<!-- autowire = "byType" -->
-  	<bean class="com.User" id="user">
+  	<bean class="com.User" id="user" autowire="byType">
   	<property name="id" value="10"></property>
   	<property name="name" value="Mayank"></property>
   	<property name="email" value="mayank@gmail.com"></property>
@@ -30,17 +30,17 @@
 	  	<value>Android</value>
   	</set>
   	</property>
-  	<property name="adr" ref="adr"></property>
-  	<property name="info">
+  	<!-- <property name="adr" ref="adr"></property> -->
+  	<!-- <property name="info">
   	<list>
   	<ref bean="info1"/>
-  	<ref bean="info1"/>
+  	<ref bean="info2"/>
   	</list>
-  	</property>
-  	</bean>
+  	</property>-->
+  	</bean> 
   
   
-  	<bean class="com.Address" id="adr">
+  	<bean class="com.Address" id="adr1">
   	<property name="city" value="Surat"></property>
   	<property name="state" value="Gujarat"></property>
   	<property name="country" value="India"></property>
