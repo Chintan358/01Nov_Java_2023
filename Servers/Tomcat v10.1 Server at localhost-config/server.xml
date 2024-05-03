@@ -140,7 +140,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="J016_OTPValidation" path="/J016_OTPValidation" reloadable="true" source="org.eclipse.jst.j2ee.server:J016_OTPValidation"/><Context docBase="J017_SessionListener" path="/J017_SessionListener" reloadable="true" source="org.eclipse.jst.j2ee.server:J017_SessionListener"/><Context docBase="J004_WebTech" path="/J004_WebTech" reloadable="true" source="org.eclipse.jst.jee.server:J004_WebTech"/><Context docBase="CrudOpration" path="/CrudOpration" reloadable="true" source="org.eclipse.jst.j2ee.server:CrudOpration"/><Context docBase="J019_HibernateWEB" path="/J019_HibernateWEB" reloadable="true" source="org.eclipse.jst.j2ee.server:J019_HibernateWEB"/><Context docBase="Ajax_Rev" path="/Ajax_Rev" reloadable="true" source="org.eclipse.jst.j2ee.server:Ajax_Rev"/><Context docBase="J013_AjaxCurd" path="/J013_AjaxCurd" reloadable="true" source="org.eclipse.jst.jee.server:J013_AjaxCurd"/><Context docBase="J025_SpringMVC" path="/J025_SpringMVC" reloadable="true" source="org.eclipse.jst.j2ee.server:J025_SpringMVC"/></Host>
+      <Context docBase="J026_springMVC_Crud" path="/J026_springMVC_Crud" reloadable="true" source="org.eclipse.jst.j2ee.server:J026_springMVC_Crud"/></Host>
     </Engine>
   </Service>
 </Server>
