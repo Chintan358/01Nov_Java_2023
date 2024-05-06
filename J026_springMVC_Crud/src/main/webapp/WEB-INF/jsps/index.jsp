@@ -9,7 +9,7 @@
 </head>
 <body>
 		<form:form action="reg" modelAttribute="user">
-		
+		<form:hidden path="id"/>
 		<form:label path="name"></form:label>
 		<form:input path="name"/>
 		<form:label path="email"></form:label>
@@ -21,5 +21,7 @@
 		
 		
 		</form:form>
+		
+		<a href="display">View all user</a>
 </body>
 </html>

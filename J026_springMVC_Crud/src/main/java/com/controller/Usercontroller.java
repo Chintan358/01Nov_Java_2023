@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.model.User;
 import com.service.UserService;
@@ -31,6 +33,31 @@ public class Usercontroller {
 		userService.addOrUpdateUser(u);
 		ModelAndView model = new ModelAndView();
 		model.addObject("user", new User());
+		model.setViewName("index");
+		return model;
+	}
+	
+	@RequestMapping("/display")
+	public ModelAndView display()
+	{
+		ModelAndView model = new ModelAndView();
+		model.addObject("data", userService.viewAllUser());
+		model.setViewName("display");
+		return model;
+	}
+	
+	@RequestMapping("/delete")
+	public RedirectView deleteuser(@RequestParam("did") int id)
+	{
+		userService.deleteUser(id);
+		return new RedirectView("display");
+	}
+	
+	@RequestMapping("/edit")
+	public ModelAndView edituser(@RequestParam("eid") int id)
+	{
+		ModelAndView model = new ModelAndView();
+		model.addObject("user", userService.userById(id));
 		model.setViewName("index");
 		return model;
 	}

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.springframework.orm.hibernate5.SessionFactoryUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +16,7 @@ import com.model.User;
 @Repository
 public class UserDaoImpl implements UserDao {
 
+	@Autowired
 	SessionFactory sessionFactory;
 	
 	
@@ -31,20 +32,29 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public ArrayList<User> viewAllUser() {
-		// TODO Auto-generated method stub
-		return null;
+		Session s  = sessionFactory.openSession();
+		Transaction tx = null;
+		tx = s.beginTransaction();
+		return (ArrayList<User>) s.createQuery("from User").list();
 	}
 
 	@Override
 	public void deleteUser(int id) {
-		// TODO Auto-generated method stub
-		
+		Session s  = sessionFactory.openSession();
+		Transaction tx = null;
+		tx = s.beginTransaction();
+		User u = s.load(User.class, id);
+		s.delete(u);
+		tx.commit();
 	}
 
 	@Override
-	public void userById(int id) {
-		// TODO Auto-generated method stub
-		
+	public User userById(int id) {
+		Session s  = sessionFactory.openSession();
+		Transaction tx = null;
+		tx = s.beginTransaction();
+		User u = s.load(User.class, id);
+		return u;
 	}
 	
 }
