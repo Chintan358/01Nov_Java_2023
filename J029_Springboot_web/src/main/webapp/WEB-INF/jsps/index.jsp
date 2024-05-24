@@ -8,6 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
 <h1>Welcome</h1>
@@ -85,7 +86,7 @@
 	<td>${dt.getGender()}</td>
 	<td>${dt.getCountry()}</td>
 	<td>${dt.getLang()}</td>
-	<td><a href="delete?did=${dt.getId()}">Delete</a></td>
+	<td><a href="delete?did=${dt.getId()}" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
 	<td><a href="edit?eid=${dt.getId()}">Edit</a></td>
 	</tr>
 	</c:forEach>

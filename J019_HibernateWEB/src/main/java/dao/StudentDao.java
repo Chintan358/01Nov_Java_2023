@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import model.Student;
 
@@ -94,6 +95,23 @@ public class StudentDao {
 				tx.rollback();
 			}
 			return st;
+		}
+
+		public Student loginChk(Student s) {
+			
+			Session session = sf.openSession();
+			
+			Transaction tx = null;
+			
+			tx = session.beginTransaction();
+			
+			Query query = session.createQuery("from Student std where std.email=:abc and std.pass=:xyz");
+			query.setParameter("abc", s.getEmail());
+			query.setParameter("xyz", s.getPass());
+			
+			Student std = (Student) query.uniqueResult();
+			
+			return std;
 		}
 		
 		

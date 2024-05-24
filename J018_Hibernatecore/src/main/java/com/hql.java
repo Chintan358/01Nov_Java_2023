@@ -41,8 +41,11 @@ public class hql {
 //		System.out.println(u.getEmail());
 		
 		
-		
-		
+		Query query = s.createQuery("from User u where u.name=:abc and u.email=:xyz");
+		query.setParameter("abc", "arun");
+		query.setParameter("xyz", "arun@gmiala.com");
+		User u = (User) query.uniqueResult();
+		System.out.println(u);
 		
 		
 		
