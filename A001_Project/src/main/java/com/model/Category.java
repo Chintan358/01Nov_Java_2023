@@ -1,12 +1,11 @@
 package com.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.*;
+
+
+
 
 @Entity
 @Table(name="category")
@@ -19,6 +18,32 @@ public class Category {
 	@Column(name="catname")
 	String categoryName;
 	
+	@OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+	List<Product> products;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 	
 	
 	

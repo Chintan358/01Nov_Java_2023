@@ -1,11 +1,18 @@
 package com.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.service.UserService;
 
 @Controller
 public class AdminController {
 
+	@Autowired
+	UserService userService;
+	
 	@RequestMapping("/admin")
 	public String login()
 	{
@@ -19,8 +26,9 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/user")
-	public String users()
+	public String users(Model model)
 	{
+		model.addAttribute("users",userService.viewallUser());
 		return "user";
 	}
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+   <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,34 +49,30 @@
         <div class="row px-xl-5">
             <div class="col-lg-5 mb-5 m-auto">
                 <div class="contact-form">
-                    <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                        <div class="control-group">
-                            <input type="text" class="form-control" id="name" placeholder="Your Name"
-                                required="required" data-validation-required-message="Please enter your name" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <input type="email" class="form-control" id="email" placeholder="Your Email"
-                                required="required" data-validation-required-message="Please enter your email" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <input type="text" class="form-control" id="phone" placeholder="Phone"
-                                required="required" data-validation-required-message="Please enter a phone number" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        
-                        <div class="control-group">
-                            <input type="password" class="form-control" id="pass" placeholder="pass"
-                                required="required" data-validation-required-message="Please enter a password" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        
-                        <div>
-                            <input type="submit" class="btn btn-primary" value="Sign Up">
-                        </div>
-                    </form>
+                    <div id="success" class="text-success">${msg}</div>
+                    <form:form action="userreg" modelAttribute="user" method="post">
+                     <div class="control-group">
+                    <form:label path="name">Username</form:label>
+                    <form:input path="name"  class="form-control"/>
+                    </div>
+                    
+                    <div class="control-group">
+                    <form:label path="email">Email</form:label>
+                    <form:input path="email"  class="form-control"/>
+                    </div>
+                 
+                    
+                    <div class="control-group">
+                    <form:label path="pass">Password</form:label>
+                    <form:password path="pass"  class="form-control"/>
+                    </div>
+                    
+                    <div class="control-group">
+                    <form:label path="phone">Phone</form:label>
+                    <form:input path="phone"  class="form-control"/>
+                    </div>
+                     <input type="submit" class="btn btn-primary" value="Sign Up">
+                      </form:form>
                 </div>
             </div>
                </div>
