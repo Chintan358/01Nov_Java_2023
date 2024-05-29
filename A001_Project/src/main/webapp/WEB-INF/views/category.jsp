@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+ <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+ <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -139,16 +141,15 @@
           <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Product category</h6>
-                            <form>
+                            <form:form action="addCategory" modelAttribute="category" method="post">
+                              <form:hidden path="id"/>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Category Name</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp">
-                                    
+                                    <form:label path="categoryName" class="form-label">Category Name</form:label>
+                                    <form:input path="categoryName" class="form-control"/>
                                 </div>
                                 
                                 <button type="submit" class="btn btn-primary">Add Category</button>
-                            </form>
+                           </form:form>
                         </div>
                     </div>
          
@@ -162,16 +163,22 @@
                                         <tr>
                                             <th scope="col">Id</th>
                                             <th scope="col">Category Name</th>
-                                            <th scope="col">Action</th>
+                                            <th colspan="2">Action</th>
                                            
                                         </tr>
                                     </thead>
                                     <tbody>
                                        
+                                     <c:forEach var="dt" items="${categories}">
                                      
-                                            <th scope="row">3</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
+                                     <tr>
+                                    		  <th scope="row">${dt.getId()}</th>
+                                            <td>${dt.getCategoryName()}</td>
+                                           	<td><a href="deleteCategory?did=${dt.getId()}">Delete</a></td>
+                                    		<td><a href="updateCategory?eid=${dt.getId()}">Edit</a></td>
+                                    </tr>
+                                     </c:forEach>
+                                           
                                             
                                     </tbody>
                                 </table>
