@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.model.User;
+import com.service.CategoryService;
+import com.service.Productservice;
 import com.service.UserService;
 
 @Controller
@@ -15,16 +17,24 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	@Autowired
+	CategoryService categoryService;
+	@Autowired
+	Productservice productservice;
+	
 	
 	@RequestMapping("/")
 	public String index()
 	{
-		return "index";
+		return "redirect:home";
 	}
 	
 	@RequestMapping("/home")
-	public String home()
+	public String home(Model model)
 	{
+		model.addAttribute("categories", categoryService.viewallcategory());
+		model.addAttribute("products", productservice.viewallProduct());
+		
 		return "index";
 	}
 	

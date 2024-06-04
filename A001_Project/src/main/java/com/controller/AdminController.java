@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.model.Category;
 import com.model.Product;
@@ -20,10 +22,15 @@ import com.service.Productservice;
 import com.service.UserService;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 
+
+
 @Controller
+
 public class AdminController {
 
 	@Autowired
@@ -97,19 +104,18 @@ public class AdminController {
 	{
 		model.addAttribute("product", new Product());
 		model.addAttribute("categories", categoryService.viewallcategory());
+		model.addAttribute("products", productservice.viewallProduct());
 		return "products";
 	}
 	
+	
 	@RequestMapping(method = RequestMethod.POST,value = "/addProduct")
-	public String addProduct(@ModelAttribute("product") Product p, HttpServletRequest req) throws IOException, ServletException
+	public String addProduct(@ModelAttribute("product") Product p, @RequestParam("catid") int id)
 	{
-		Part file = req.getPart("file");
-		String name = Paths.get(file.getSubmittedFileName()).getFileName().toString();
-		System.out.println(name);
 		
-		Category c = categoryService.catgorybyId(3);
+		
+		Category c = categoryService.catgorybyId(id);
 		p.setCategory(c);
-		p.setImg(name);
 		productservice.addorUpdateProduct(p);
 		return "redirect:product";
 	}

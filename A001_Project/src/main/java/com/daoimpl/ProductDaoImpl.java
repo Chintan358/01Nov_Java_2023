@@ -29,8 +29,9 @@ public class ProductDaoImpl  implements ProductDao{
 
 	@Override
 	public List<Product> viewallProduct() {
-		// TODO Auto-generated method stub
-		return null;
+		Session s  = factory.openSession();
+		Transaction tx  =s.beginTransaction();
+		return s.createQuery("from Product").list();
 	}
 
 	@Override

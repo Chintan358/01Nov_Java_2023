@@ -141,7 +141,7 @@
           <div class="col-sm-12 col-xl-6">
                        <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Product</h6>
-                            <form:form action="addProduct" modelAttribute="product" method="post" enctype="multipart/form-data">
+                            <form:form action="addProduct" modelAttribute="product" method="post" >
                               <form:hidden path="id"/>
                                 <div class="mb-3">
                                    	<select class="form-control" name="catid">
@@ -182,26 +182,33 @@
          
 		  <div class="col-12">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Categories</h6>
+                            <h6 class="mb-4">Products</h6>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th scope="col">Id</th>
                                             <th scope="col">Category Name</th>
-                                            <th colspan="2">Action</th>
-                                           
+                                            <th >Product Name</th>
+                                            <th> Price</th>
+                                            <th > Qty</th>
+                                           <th > Image</th>
+                                           <th colspan="2">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                        
-                                     <c:forEach var="dt" items="${categories}">
+                                     <c:forEach var="dt" items="${products}">
                                      
                                      <tr>
                                     		  <th scope="row">${dt.getId()}</th>
-                                            <td>${dt.getCategoryName()}</td>
-                                           	<td><a href="deleteCategory?did=${dt.getId()}">Delete</a></td>
-                                    		<td><a href="updateCategory?eid=${dt.getId()}">Edit</a></td>
+                                            <td>${dt.getCategory().getCategoryName()}</td>
+                                            <td>${dt.getPname()}</td>
+                                              <td>${dt.getPrice() }</td>
+                                                <td>${dt.getQty() }</td>
+                                                <td>${dt.getImg() }</td>
+                                           	<td><a href="deleteProduct?did=${dt.getId()}">Delete</a></td>
+                                    		<td><a href="updateProduct?eid=${dt.getId()}">Edit</a></td>
                                     </tr>
                                      </c:forEach>
                                            
