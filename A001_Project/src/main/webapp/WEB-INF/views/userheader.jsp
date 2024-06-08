@@ -99,10 +99,25 @@
                             
                             <a href="contact" class="nav-item nav-link">Contact</a>
                         </div>
-                        <div class="navbar-nav ml-auto py-0">
+                        <%
+                       	 Integer userid = (Integer)session.getAttribute("userid");
+                        if(userid==null)
+                        { %>
+                        	<div class="navbar-nav ml-auto py-0">
                             <a href="login" class="nav-item nav-link">Login</a>
                             <a href="reg" class="nav-item nav-link">Register</a>
                         </div>
+                        <%}
+                        else
+                        {%>
+                        	<div class="navbar-nav ml-auto py-0">
+                            <a href="logout" class="nav-item nav-link">Logout</a>
+                            
+                        </div>
+                       <%}
+                        
+                        %>
+                        
                     </div>
                 </nav>
                 <div id="header-carousel" class="carousel slide" data-ride="carousel">

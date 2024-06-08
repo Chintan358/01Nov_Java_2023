@@ -1,6 +1,14 @@
 package com.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+
+
 
 @Entity
 @Table(name="user")
@@ -10,8 +18,13 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
+	
+	
+	@NotBlank
 	@Column(name="name")
 	private String name;
+	
+	
 	@Column(name="email")
 	private String email;
 	@Column(name="pass")

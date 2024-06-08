@@ -1,13 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.java</groupId>
-  <artifactId>A001_Project</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>A001_Project Maven Webapp</name>
-  <url>http://maven.apache.org</url>
- <dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.java</groupId>
+	<artifactId>A001_Project</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>A001_Project Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -82,7 +83,7 @@
 			<artifactId>hibernate-core-jakarta</artifactId>
 			<version>5.6.15.Final</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
@@ -95,9 +96,22 @@
 			<version>2.11.0</version>
 		</dependency>
 
+		<!--
+		https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+		<dependency>
+
+			<groupId>org.hibernate.validator</groupId>
+
+			<artifactId>hibernate-validator</artifactId>
+
+			<version>6.0.13.Final</version>
+
+		</dependency>
+
+
 
 	</dependencies>
-  <build>
-    <finalName>A001_Project</finalName>
-  </build>
+	<build>
+		<finalName>A001_Project</finalName>
+	</build>
 </project>

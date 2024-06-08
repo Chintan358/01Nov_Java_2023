@@ -39,4 +39,10 @@ public class UserServiceImpl implements UserService {
 		return userDao.userById(id);
 	}
 
+	@Override
+	public User userLogin(User u) {
+		
+		return userDao.userLogin(u);
+	}
+
 }

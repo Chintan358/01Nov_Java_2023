@@ -54,6 +54,7 @@
                      <div class="control-group">
                     <form:label path="name">Username</form:label>
                     <form:input path="name"  class="form-control"/>
+                    <form:errors path="name"></form:errors>
                     </div>
                     
                     <div class="control-group">
