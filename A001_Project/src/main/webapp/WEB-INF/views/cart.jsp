@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+   <%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +10,10 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-
+	
     <!-- Favicon -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
@@ -60,9 +63,11 @@
                         </tr>
                     </thead>
                     <tbody class="align-middle">
+                    <c:forEach var="dt" items="${cartdata}">
                         <tr>
-                            <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">$150</td>
+                            <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;">${dt.getProduct().getPname()}</td>
+                            <td class="align-middle">${dt.getProduct().getPrice()} </td>
+                            
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="input-group-btn">
@@ -70,7 +75,7 @@
                                         <i class="fa fa-minus"></i>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
+                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="${dt.getQty()}">
                                     <div class="input-group-btn">
                                         <button class="btn btn-sm btn-primary btn-plus">
                                             <i class="fa fa-plus"></i>
@@ -78,94 +83,15 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="img/product-2.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">$150</td>
                             <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                            
+                          	${dt.getProduct().getPrice() * dt.getQty()}
+                           
                             </td>
-                            <td class="align-middle">$150</td>
                             <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
                         </tr>
-                        <tr>
-                            <td class="align-middle"><img src="img/product-3.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="img/product-4.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="img/product-5.jpg" alt="" style="width: 50px;"> Colorful Stylish Shirt</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-primary"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                    </tbody>
+                        </c:forEach>
+            </tbody>
                 </table>
             </div>
             <div class="col-lg-4">
@@ -194,9 +120,9 @@
                     <div class="card-footer border-secondary bg-transparent">
                         <div class="d-flex justify-content-between mt-2">
                             <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">$160</h5>
+                            <h5 class="font-weight-bold" id="total">${total}</h5>
                         </div>
-                        <button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
+                        <button class="btn btn-block btn-primary my-3 py-3" id="pay">Proceed To Checkout</button>
                     </div>
                 </div>
             </div>
@@ -278,7 +204,49 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+	
+	<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+	<script>
 
+	document.getElementById('pay').onclick = function(e){
+	e.preventDefault();
+	var amt = document.getElementById('total').textContent
+	alert(amt)
+	$.post('payment',{amt:amt},function(rt){
+		
+		const order = JSON.parse(rt);
+		
+		
+		var options = {
+		    "key": "rzp_test_KaVziyeak3IQl4", // Enter the Key ID generated from the Dashboard
+		  	"currency": "INR",
+		    "name": "Tops tech",
+		    "description": "Test Transaction",
+		    "image":"C:\Users\chintan\Desktop\logo-tops.png",
+		    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+		    "handler": function (response){
+		        alert(response.razorpay_payment_id);
+		        alert(response.razorpay_order_id);
+		        alert(response.razorpay_signature)
+		    }
+		};
+		var rzp1 = new Razorpay(options);
+		rzp1.on('payment.failed', function (response){
+		        alert(response.error.code);
+		        alert(response.error.description);
+		        alert(response.error.source);
+		        alert(response.error.step);
+		        alert(response.error.reason);
+		        alert(response.error.metadata.order_id);
+		        alert(response.error.metadata.payment_id);
+		});
+		rzp1.open();
+	})
+		
+
+    
+}
+</script>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -292,6 +260,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
 </body>
 
 </html>

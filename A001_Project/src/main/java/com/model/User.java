@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -32,6 +34,15 @@ public class User {
 	@Column(name="phone")
 	private String phone;
 	
+	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+	List<Cart> carts;
+	
+	public List<Cart> getCarts() {
+		return carts;
+	}
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
+	}
 	public int getId() {
 		return id;
 	}

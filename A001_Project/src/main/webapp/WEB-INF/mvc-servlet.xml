@@ -51,6 +51,7 @@
 				<value>com.model.Admin</value>
 				<value>com.model.Category</value>
 				<value>com.model.Product</value>
+				<value>com.model.Cart</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

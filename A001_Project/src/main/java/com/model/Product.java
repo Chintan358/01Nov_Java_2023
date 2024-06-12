@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -26,6 +28,18 @@ public class Product {
 	@ManyToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH,CascadeType.DETACH,CascadeType.PERSIST})
 	@JoinColumn(name="catid")
 	Category category;
+	
+	@OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+	List<Cart> carts;
+
+	
+	public List<Cart> getCarts() {
+		return carts;
+	}
+
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
+	}
 
 	public int getId() {
 		return id;

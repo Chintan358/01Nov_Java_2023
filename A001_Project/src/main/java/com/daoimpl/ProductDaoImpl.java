@@ -36,14 +36,16 @@ public class ProductDaoImpl  implements ProductDao{
 
 	@Override
 	public void deleteProduct(int id) {
-		// TODO Auto-generated method stub
-		
+		Session s  = factory.openSession();
+		Transaction tx  =s.beginTransaction();
+		s.delete(s.load(Product.class, id));
 	}
 
 	@Override
 	public Product productById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s  = factory.openSession();
+		Transaction tx  =s.beginTransaction();
+		return s.load(Product.class, id);
 	}
 
 }

@@ -1,6 +1,10 @@
 package com.controller;
 
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +16,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.model.Cart;
+import com.model.Product;
 import com.model.User;
+import com.service.CartService;
 import com.service.CategoryService;
 import com.service.Productservice;
 import com.service.UserService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-
+import org.json.JSONObject;
+import com.razorpay.*;
 
 @Controller
 public class UserController {
@@ -30,7 +40,31 @@ public class UserController {
 	CategoryService categoryService;
 	@Autowired
 	Productservice productservice;
+	@Autowired
+	CartService cartService;
 	
+	@RequestMapping("/payment")
+	public void payment(HttpServletRequest request,HttpServletResponse response)
+	{
+		  double amt = Double.parseDouble(request.getParameter("amt"));	
+		  JSONObject orderRequest = new JSONObject();
+		  orderRequest.put("amount", amt*100); // amount in the smallest currency unit
+		  orderRequest.put("currency", "INR");
+		  orderRequest.put("receipt", "order_rcptid_11");
+		  RazorpayClient razorpay;
+		try {
+			razorpay = new RazorpayClient("rzp_test_KaVziyeak3IQl4", "WjEm1HDZKRcwBK2lpKme8qnl");
+			 Order order = razorpay.orders.create(orderRequest);
+			 PrintWriter  pw  = response.getWriter();
+			  
+			 pw.append(order.toString());
+		
+		} catch (RazorpayException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+	}
 	
 	@RequestMapping("/")
 	public String index()
@@ -58,7 +92,15 @@ public class UserController {
 		}
 		else
 		{
+			double sum = 0;
+			for(Cart c : cartService.cartByUser(userid))
+			{
+				double stotal = c.getProduct().getPrice()*c.getQty();
+				sum = sum+stotal;
+			}
 			
+			model.addAttribute("cartdata", cartService.cartByUser(userid));
+			model.addAttribute("total", sum);
 			return "cart";
 		}
 		
@@ -75,7 +117,11 @@ public class UserController {
 		}
 		else
 		{
-			
+			Cart c = new Cart();
+			c.setProduct(productservice.productById(pid));
+			c.setUser(userService.userById(userid));
+			c.setQty(1);
+			cartService.addOrUpdateCart(c);
 			return "cart";
 		}
 	}
