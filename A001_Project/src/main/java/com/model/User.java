@@ -7,11 +7,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-
-
-
 @Entity
 @Table(name="user")
 public class User {
@@ -37,6 +32,16 @@ public class User {
 	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
 	List<Cart> carts;
 	
+	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+	List<Order> orders;
+	
+	
+	public List<Order> getOrders() {
+		return orders;
+	}
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
 	public List<Cart> getCarts() {
 		return carts;
 	}
@@ -73,6 +78,7 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
 	
 	
 }

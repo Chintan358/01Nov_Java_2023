@@ -26,10 +26,16 @@ public class CartDaoImpl implements CartDao {
 	@Override
 	public void addOrUpdateCart(Cart c) {
 		
-		Session s  =sessionFactory.openSession();
-		Transaction tx  =s.beginTransaction();
-		s.saveOrUpdate(c);
-		tx.commit();
+		try {
+			Session s  =sessionFactory.openSession();
+			Transaction tx  =s.beginTransaction();
+			s.saveOrUpdate(c);
+			tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		
 
 	}
 

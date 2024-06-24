@@ -21,6 +21,7 @@ import com.model.Product;
 import com.model.User;
 import com.service.CartService;
 import com.service.CategoryService;
+import com.service.OrderService;
 import com.service.Productservice;
 import com.service.UserService;
 
@@ -43,6 +44,9 @@ public class UserController {
 	@Autowired
 	CartService cartService;
 	
+	@Autowired
+	OrderService orderService;
+	
 	@RequestMapping("/payment")
 	public void payment(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -53,7 +57,7 @@ public class UserController {
 		  orderRequest.put("receipt", "order_rcptid_11");
 		  RazorpayClient razorpay;
 		try {
-			razorpay = new RazorpayClient("rzp_test_KaVziyeak3IQl4", "WjEm1HDZKRcwBK2lpKme8qnl");
+			razorpay = new RazorpayClient("rzp_test_a7SSRy55tg3DNp", "rMTukwWBdNatIClz8CX3yJ5Q");
 			 Order order = razorpay.orders.create(orderRequest);
 			 PrintWriter  pw  = response.getWriter();
 			  
@@ -65,6 +69,60 @@ public class UserController {
 		}
 		 
 	}
+	
+	@RequestMapping(value="/order",method = RequestMethod.POST)
+	public void order(HttpServletRequest request,HttpServletResponse response,HttpSession session)
+	{
+		PrintWriter pw=null;
+		try {
+			
+			String payid = request.getParameter("pid");
+			Integer userid = (Integer) session.getAttribute("userid");
+			
+			List<Cart> allcart = cartService.cartByUser(userid);
+			
+			String qty = "";
+			String pid = "";
+			String price = "";
+			double sum = 0;
+			User u = userService.userById(userid);
+ 			for(Cart c : allcart)
+			{
+				qty += c.getQty()+",";
+				pid += c.getProduct().getId()+",";
+				price += c.getProduct().getPrice()+",";
+				double stotal = c.getProduct().getPrice()*c.getQty();
+				sum = sum+stotal;
+			}
+			
+ 			System.out.println(userid);
+ 			System.out.println(payid);
+ 			System.out.println(pid);
+ 			System.out.println(price);
+ 			System.out.println(qty);
+ 			System.out.println(sum);
+ 			
+			com.model.Order order = new com.model.Order();
+			order.setPayid(payid);
+			order.setPid(pid);
+			order.setPrice(price);
+			order.setQty(qty);
+			order.setTotal(sum);
+			order.setUser(u);
+			
+			orderService.addOrUpdateOrder(order);
+			
+			
+			pw = response.getWriter();
+			pw.append("Order confirmed !!!!");
+		} 
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 	@RequestMapping("/")
 	public String index()
@@ -122,7 +180,7 @@ public class UserController {
 			c.setUser(userService.userById(userid));
 			c.setQty(1);
 			cartService.addOrUpdateCart(c);
-			return "cart";
+			return "redirect:home";
 		}
 	}
 	

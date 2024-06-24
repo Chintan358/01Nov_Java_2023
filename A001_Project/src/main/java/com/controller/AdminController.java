@@ -3,6 +3,8 @@ package com.controller;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.model.Category;
+import com.model.Order;
 import com.model.Product;
 import com.service.CategoryService;
+import com.service.OrderService;
 import com.service.Productservice;
 import com.service.UserService;
 
@@ -26,7 +30,6 @@ import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
-
 
 
 @Controller
@@ -40,6 +43,9 @@ public class AdminController {
 	
 	@Autowired
 	Productservice productservice;
+	
+	@Autowired
+	OrderService orderService;
 	
 	@RequestMapping("/admin")
 	public String login()
@@ -113,7 +119,7 @@ public class AdminController {
 	public String addProduct(@ModelAttribute("product") Product p, @RequestParam("catid") int id)
 	{
 		
-		
+	    //String filename=file.getOriginalFilename();  
 		Category c = categoryService.catgorybyId(id);
 		p.setCategory(c);
 		productservice.addorUpdateProduct(p);
@@ -124,6 +130,20 @@ public class AdminController {
 	@RequestMapping("/order")
 	public String order()
 	{
+		List<Order> o  = orderService.viewAllOrder();
+		for(Order ol : o)
+		{
+			System.out.println(ol.getId());
+			System.out.println(ol.getPayid());
+			String products[] = ol.getPid().split(",");
+			String price[] = ol.getPrice().split(",");
+			String qty[] = ol.getQty().split(",");
+			for(int i=0;i<products.length;i++)
+			{
+				System.out.println(productservice.productById(Integer.parseInt(products[i])).getPname()+" "+price[i]+" "+qty[i]);
+			}
+			
+		}
 		return "order";
 	}
 	

@@ -211,23 +211,27 @@
 	document.getElementById('pay').onclick = function(e){
 	e.preventDefault();
 	var amt = document.getElementById('total').textContent
-	alert(amt)
+	
 	$.post('payment',{amt:amt},function(rt){
 		
 		const order = JSON.parse(rt);
 		
 		
 		var options = {
-		    "key": "rzp_test_KaVziyeak3IQl4", // Enter the Key ID generated from the Dashboard
+		    "key": "rzp_test_a7SSRy55tg3DNp", // Enter the Key ID generated from the Dashboard
 		  	"currency": "INR",
 		    "name": "Tops tech",
 		    "description": "Test Transaction",
 		    "image":"C:\Users\chintan\Desktop\logo-tops.png",
 		    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
 		    "handler": function (response){
-		        alert(response.razorpay_payment_id);
+		        /* alert(response.razorpay_payment_id);
 		        alert(response.razorpay_order_id);
-		        alert(response.razorpay_signature)
+		        alert(response.razorpay_signature) */
+		        $.post("order",{pid:response.razorpay_payment_id},function(rt){
+		        	alert(rt)
+		        })
+		        
 		    }
 		};
 		var rzp1 = new Razorpay(options);
